@@ -18,7 +18,7 @@ class CheckStatusMiddleware
 
         if (auth()->user()->status !== $status) {
             // If status does not match, redirect or return an error response
-            return redirect()->route('home')->with('error', 'You are not authorized to access this page.');
+            return redirect()->route('login')->with('error', 'You are not authorized to access this page.');
         }
         return $next($request);
     }

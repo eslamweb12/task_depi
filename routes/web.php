@@ -32,5 +32,15 @@ Route::group(['middleware' => ['auth','checkStatus:admin']],function(){
     Route::get('/all-users',[userController::class,'index'])->name('allUsers');
 
 
-
 });
+Route::view('create-category','categories.create')->name('createCategory');
+Route::post('/add-category',[\App\Http\Controllers\CategoryController::class,'create'])->name('addCategory');
+
+
+Route::view('create-questaion','questions.create')->name('createQuestion');
+Route::post('/add-question',[\App\Http\Controllers\CategoryController::class,'create'])->name('addCategory');
+Route::get('/create-question',[\App\Http\Controllers\questionController::class,'create'])->name('addQuestion');
+
+Route::post('/create-new-question',[\App\Http\Controllers\questionController::class,'store'])->name('storeQuestion');
+Route::view('create-product','client.add-product')->name('createProduct');
+Route::post('create-product',[\App\Http\Controllers\questionController::class,'store'])->name('storeProduct');
